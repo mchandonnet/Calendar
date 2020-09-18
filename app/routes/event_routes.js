@@ -68,8 +68,8 @@ router.post('/events', requireToken, (req, res, next) => {
 
   Event.create(eventData)
     // respond to succesful `create` with status 201 and JSON of new "example"
-    .then(example => {
-      res.status(201).json({ example: example.toObject() })
+    .then(event => {
+      res.status(201).json({ event: event.toObject() })
     })
     // if an error occurs, pass it off to our error handler
     // the error handler needs the error message and the `res` object so that it
