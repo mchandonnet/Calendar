@@ -30,15 +30,16 @@ const router = express.Router()
 // INDEX
 // GET /events
 router.get('/events', requireToken, (req, res, next) => {
-  Event.find()
+  Event.find({ owner: req.user.id })
+    .populate('owner')
     .then(event => {
       // `events` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
       // apply `.toObject` to each one
-      return event.map(event => event.toObject())
+      return event.map(event => event)
     })
     // respond with status 200 and JSON of the events
-    .then(event => res.status(200).json({ event: event }))
+    .then(event => res.status(200).json({ event }))
     // if an error occurs, pass it to the handler
     .catch(next)
 })
