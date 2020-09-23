@@ -3,7 +3,7 @@ M. Chandonnet // GA - SEI // Project #2 // Calendar API
 
 # Calendar
 
-A calendar API that includes Users, and Events
+A calendar API that includes Users, and Events  ( [Click HERE for API](https://github.com/mchandonnet/calendar-client) )
 
 
 ## Structure
