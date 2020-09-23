@@ -30,7 +30,7 @@ const router = express.Router()
 // GET EVENTS FOR A SPECIFIC DATE
 // GET /events/date/:date
 router.get('/events/date/:date', requireToken, (req, res, next) => {
-  Event.find({ owner: req.user.id, startDate: req.params.date })
+  Event.find({ owner: req.user.id, startDate: req.params.date }, null, {sort: { 'startTime': 1 }}, (_err, events) => { })
     .populate('owner')
     .then(event => {
       // `events` will be an array of Mongoose documents
